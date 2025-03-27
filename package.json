@@ -1,0 +1,29 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Namaste react course",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/As00d/Namaste-React.git"
+  },
+  "keywords": [],
+  "author": "ankisood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/As00d/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/As00d/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.14.2"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist": [
+    "last versions"
+  ]
+}
