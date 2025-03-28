@@ -20,11 +20,13 @@ const Title = () => {
   <h1>hello i am title</h1>;
 };
 
+const number = 100;
 // Component composition
 const HeadingComponent = () => {
   return (
     <div>
       <Title />
+      {number}
       <h1>Hello i am react functional component </h1>
     </div>
   );
