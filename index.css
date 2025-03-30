@@ -48,3 +48,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.filter-btn {
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+}

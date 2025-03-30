@@ -28,6 +28,11 @@ Two types of import/export
     - export const ComponentName/Variable
     - import {ComponentName/Variable} from location
 
+# React hooks
+- Normal js functions written by Facebook developers (utility function)
+   - useState()
+   - useEffect()
+   
 Issues faced - 
 1. npm run build with parcel throws an error
 Solution: https://stackoverflow.com/questions/71053013/npm-run-build-with-parcel-throws-an-error
