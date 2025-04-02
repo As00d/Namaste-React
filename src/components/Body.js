@@ -1,6 +1,7 @@
 import ResCard from "./ResCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Outlet } from "react-router";
 const Body = () => {
   const [restaurantName, setRestaurantName] = useState([]);
   const [userInput, setUserInput] = useState("");
@@ -59,6 +60,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
+      <Outlet />
       <div className="res-container">
         {filteredRes.map((resData) => {
           return (

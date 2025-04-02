@@ -30,6 +30,16 @@
   background: #f0f0f0;
   padding: 5px;
 }
+
+.res-menu-item {
+  width: 550px;
+  padding: 15px;
+  height: 170px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 .res-card:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
@@ -69,4 +79,31 @@ li > button {
 
 .filter {
   display: flex;
+}
+
+.menu {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.res-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.info-box {
+  padding: 10px;
+  width: 500px;
+  height: 100px;
+  margin: 20px 0;
+  border: 1px solid grey;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

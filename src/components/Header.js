@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
-
+import { NavLink } from "react-router";
 const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(false);
 
@@ -14,9 +14,15 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Contact us</li>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About us</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact us</NavLink>
+          </li>
           <li>Cart</li>
           <li>
             <button onClick={() => setIsLoggedIn(!isloggedIn)}>
