@@ -3,10 +3,6 @@ import { LOGO_URL } from "../utils/constants";
 import { NavLink } from "react-router";
 const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    console.log("Hello");
-  }, []);
   return (
     <div className="header">
       <div className="logo-container">

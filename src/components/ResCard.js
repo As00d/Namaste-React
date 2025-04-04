@@ -2,7 +2,6 @@ import { CDN_URL } from "../utils/constants";
 import { Link, NavLink } from "react-router";
 const ResCard = (props) => {
   const { resData } = props;
-  console.log(resData);
   const { name, cuisines, avgRatingString, costForTwo, cloudinaryImageId, id } =
     resData;
 

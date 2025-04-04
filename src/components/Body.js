@@ -21,7 +21,7 @@ const Body = () => {
 
   const handleSearch = () => {
     // write a way to filter the data from array based on userInput
-    // console.log(resList);
+
     const filteredSearch = restaurantName.filter((item) => {
       return item?.card?.card?.info?.name
         .toLowerCase()

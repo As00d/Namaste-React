@@ -1,25 +1,10 @@
-import { useEffect, useState } from "react";
+import useResData from "../utils/hook/useResData";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router";
 
 const Restaurant = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { id } = useParams();
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const resp = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.97530&lng=77.59100&restaurantId=" +
-        id +
-        "&catalog_qa=undefined&query=Pizza&submitAction=ENTER"
-    );
-    const json = await resp.json();
-
-    setResInfo(json.data);
-  };
-
+  const resInfo = useResData(id);
   {
     return resInfo === null ? (
       <Shimmer />
@@ -42,7 +27,7 @@ const Restaurant = () => {
           </div>
 
           <div className="res-menu">
-            {resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards.map(
+            {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
               (card, index) => {
                 return (
                   <div className="res-menu-item" key={index}>
