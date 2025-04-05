@@ -2,10 +2,13 @@ import ResCard from "./ResCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Outlet } from "react-router";
+import useInternet from "../utils/hook/useInternet";
+
 const Body = () => {
   const [restaurantName, setRestaurantName] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [filteredRes, setFilteredRes] = useState([]);
+  const internetStatus = useInternet();
   useEffect(function () {
     fetchData();
   }, []);
@@ -31,6 +34,15 @@ const Body = () => {
 
     setUserInput("");
   };
+
+  if (!internetStatus) {
+    return (
+      <div>
+        Looks like you are offline, please check your internet connection and
+        refresh the page
+      </div>
+    );
+  }
   // conditional rendering
   if (restaurantName.length === 0) {
     return <Shimmer />;

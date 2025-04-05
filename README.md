@@ -37,7 +37,16 @@ Two types of import/export
 # 2 types of routing in web app
    - Server side routing - u make a network call, and index.html is rendered from there.
    - Client side routing -  here all things are rendered we do not make a call to anything
-   
+
+# Performance optimisation tools and techniques
+   - Bundle spliting
+      - also known as
+         - chunking
+         - code splitting
+         - dynamic bundling
+         - lazy loading
+         - on demand loading
+
 Issues faced - 
 1. npm run build with parcel throws an error
 Solution: https://stackoverflow.com/questions/71053013/npm-run-build-with-parcel-throws-an-error
