@@ -13,7 +13,9 @@ const Restaurant = () => {
         <div className="menu">
           <div>
             <div>
-              <h1>{resInfo?.cards[2]?.card?.card?.info?.name}</h1>
+              <h1 className="text-2xl text-center">
+                {resInfo?.cards[2]?.card?.card?.info?.name}
+              </h1>
             </div>
             <div className="info-box">
               <p style={{ fontWeight: "bold" }}>

@@ -47,6 +47,14 @@ Two types of import/export
          - lazy loading
          - on demand loading
 
+# Styling options for projects -
+   - normal css
+   - styled components
+   - material ui
+   - chakra ui
+   - scss, sass 
+   - ant design
+
 Issues faced - 
 1. npm run build with parcel throws an error
 Solution: https://stackoverflow.com/questions/71053013/npm-run-build-with-parcel-throws-an-error

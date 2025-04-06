@@ -13,7 +13,7 @@ const ResCard = (props) => {
           alt=""
           className="res-img"
         />
-        <h3>{name}</h3>
+        <h3 className="text-xl">{name}</h3>
         <h4>{cuisines.join(", ")}</h4>
         <h4>{avgRatingString} stars</h4>
         <h4>{costForTwo}</h4>
