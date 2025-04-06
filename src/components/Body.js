@@ -49,31 +49,40 @@ const Body = () => {
   }
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex items-center">
+        <div className="search mx-4 p-4">
           <input
             type="text"
             name=""
             id="search-box"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
+            className="border border-solid border-black p-2"
+            placeholder="Search pizza ..."
           />
-          <button onClick={() => handleSearch()}>Search</button>
+          <button
+            className="p-2 mx-2 bg-green-100 cursor-pointer rounded-md"
+            onClick={() => handleSearch()}
+          >
+            Search
+          </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const newResList = restaurantName.filter((resData) => {
-              return resData.card.card.info.avgRating > 4;
-            });
-            setFilteredRes(newResList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div>
+          <button
+            className="p-2 mx-2 bg-blue-200 cursor-pointer rounded-md"
+            onClick={() => {
+              const newResList = restaurantName.filter((resData) => {
+                return resData.card.card.info.avgRating > 4;
+              });
+              setFilteredRes(newResList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
       <Outlet />
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRes.map((resData) => {
           return (
             <ResCard

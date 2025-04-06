@@ -7,13 +7,13 @@ const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(false);
   const status = useInternet();
   return (
-    <div className="header">
+    <div className="flex justify-between items-center mb-2 bg-pink-100 px-16">
       <div className="logo-container">
-        <img src={LOGO_URL} alt="" className="logo" />
+        <img src={LOGO_URL} alt="" className="w-20" />
       </div>
       <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex p-4 m-4 items-center">
+          <li className="m-2">
             <FaCircle
               style={
                 status
@@ -22,20 +22,20 @@ const Header = () => {
               }
             />
           </li>
-          <li>
+          <li className="m-2 text-xl">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li>
+          <li className="m-2 text-xl">
             <NavLink to="/about">About us</NavLink>
           </li>
-          <li>
+          <li className="m-2 text-xl">
             <NavLink to="/contact">Contact us</NavLink>
           </li>
-          <li>
+          <li className="m-2 text-xl">
             <NavLink to="/grocery">Grocery</NavLink>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="m-2 text-xl">Cart</li>
+          <li className="m-2 text-xl">
             <button onClick={() => setIsLoggedIn(!isloggedIn)}>
               {isloggedIn ? `LogIn` : `Logout`}
             </button>
