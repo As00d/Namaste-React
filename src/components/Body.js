@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Outlet } from "react-router";
 import useInternet from "../utils/hook/useInternet";
+import { WithPromotedLabel } from "./ResCard";
 
 const Body = () => {
   const [restaurantName, setRestaurantName] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [filteredRes, setFilteredRes] = useState([]);
+  const RestaurantCardPromoted = WithPromotedLabel(ResCard);
   const internetStatus = useInternet();
   useEffect(function () {
     fetchData();
@@ -22,6 +24,7 @@ const Body = () => {
     setFilteredRes(res?.data?.cards.slice(3));
   };
 
+  console.log(restaurantName);
   const handleSearch = () => {
     // write a way to filter the data from array based on userInput
 
@@ -84,7 +87,12 @@ const Body = () => {
       <Outlet />
       <div className="flex flex-wrap">
         {filteredRes.map((resData) => {
-          return (
+          return resData?.card?.card?.info.promoted ? (
+            <RestaurantCardPromoted
+              resData={resData}
+              key={resData?.card?.card?.info.id}
+            />
+          ) : (
             <ResCard
               resData={resData?.card?.card?.info}
               key={resData?.card?.card?.info.id}
