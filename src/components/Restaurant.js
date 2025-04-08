@@ -5,57 +5,64 @@ import { useParams } from "react-router";
 const Restaurant = () => {
   const { id } = useParams();
   const resInfo = useResData(id);
-  {
-    return resInfo === null ? (
-      <Shimmer />
-    ) : (
-      <>
-        <div className="menu">
-          <div>
-            <div>
-              <h1 className="text-2xl text-center">
-                {resInfo?.cards[2]?.card?.card?.info?.name}
-              </h1>
-            </div>
-            <div className="info-box">
-              <p style={{ fontWeight: "bold" }}>
-                ⭐️ {resInfo?.cards[2]?.card?.card?.info?.avgRating} (
-                {resInfo?.cards[2]?.card?.card?.info?.totalRatingsString}){" "}
-                {resInfo?.cards[2]?.card?.card?.info?.costForTwoMessage}
-              </p>
-              <p>{resInfo?.cards[2]?.card?.card?.info?.areaName}</p>
-              <h2>Menu↓</h2>
-            </div>
-          </div>
 
-          <div className="res-menu">
-            {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
-              (card, index) => {
+  if (resInfo === null) {
+    return <Shimmer />;
+  } else {
+    const itemCategory =
+      resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (item) =>
+          item?.card?.card?.["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
+
+    const { name, cuisines, costForTwoMessage } =
+      resInfo?.cards[2]?.card?.card?.info;
+
+    return (
+      <div className="text-center flex flex-col justify-center items-center">
+        <h1 className="text-2xl font-bold my-6">{name}</h1>
+        <p className="font-bold text-lg">
+          {cuisines.join(", ")}
+          {" -  "} {costForTwoMessage}
+        </p>
+        {/* categories accordion */}
+        {itemCategory.map((item, index) => {
+          const { title, itemCards } = item?.card?.card;
+          return (
+            <div className="flex  flex-col m-4 w-[800px]" key={index}>
+              <h1 className="font-bold text-lg">{title}</h1>
+              {itemCards.map((item) => {
+                const { name, price, imageId, description, id } =
+                  item?.card?.info;
+
                 return (
-                  <div className="res-menu-item" key={index}>
-                    <div>
-                      <h3>{card.card.info.name}</h3>
-                      <h3>{Number(card?.card?.info?.price) / 100}₹</h3>
-                      <h3>
-                        {card.card.info.ratings.aggregatedRating.rating}⭐️
-                      </h3>
-                      <p>{card.card.info.description}</p>
+                  <div
+                    className=" flex justify-between my-4 border border-white border-t-gray-300 py-6 "
+                    key={id}
+                  >
+                    <div className="flex flex-col text-left justify-around">
+                      <h1 className="text-xl font-bold">{name}</h1>
+                      <h2>
+                        {"₹"}
+                        {price / 100}
+                      </h2>
+                      <p className="text-gray-500">{description}</p>
                     </div>
-                    <div>
+                    <div className="min-w-36 mx-2">
                       <img
-                        height="100%"
-                        width={150}
-                        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${card.card.info.imageId}`}
-                        alt=""
+                        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,/${imageId}.jpg`}
+                        alt="foodItemImage"
+                        className="h-36 w-36 rounded-2xl"
                       />
                     </div>
                   </div>
                 );
-              }
-            )}
-          </div>
-        </div>
-      </>
+              })}
+            </div>
+          );
+        })}
+      </div>
     );
   }
 };
