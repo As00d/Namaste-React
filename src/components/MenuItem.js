@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
-export function MenuItem({
-  index,
-  title,
-  itemCards,
-  handleOpenAccordion,
-  length,
-}) {
+export function MenuItem({ index, title, itemCards, length }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpenAccordion = (index) => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="flex  flex-col m-4 w-6/12" key={index}>
       <div
@@ -18,7 +16,7 @@ export function MenuItem({
         </h1>
         <p>↓</p>
       </div>
-      <ItemList itemCards={itemCards} />
+      {isOpen && <ItemList itemCards={itemCards} />}
     </div>
   );
 }

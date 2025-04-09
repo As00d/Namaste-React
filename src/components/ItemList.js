@@ -24,7 +24,7 @@ function ItemList({ itemCards }) {
             alt="foodItemImage"
             className="rounded-2xl h-full"
           />
-          <button className="px-8 text-green-600 bg-white rounded-xl border bolder border-gray-300 cursor-pointer relative bottom-[45px] py-2">
+          <button className="px-12 shadow-xl text-green-600 bg-white rounded-xl border bolder border-gray-300 cursor-pointer relative bottom-[45px] py-2">
             ADD
           </button>
         </div>

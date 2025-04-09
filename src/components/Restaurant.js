@@ -7,10 +7,6 @@ import { useState } from "react";
 const Restaurant = () => {
   const { id } = useParams();
   const resInfo = useResData(id);
-  const [isOpen, setIsOpen] = useState(false);
-  const handleOpenAccordion = (index) => {
-    setIsOpen(!isOpen);
-  };
   if (resInfo === null) {
     return <Shimmer />;
   } else {
@@ -40,8 +36,6 @@ const Restaurant = () => {
               title={title}
               itemCards={itemCards}
               key={index}
-              handleOpenAccordion={handleOpenAccordion}
-              isOpen={isOpen}
               length={item?.card?.card?.itemCards.length}
             />
           );
