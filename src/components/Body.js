@@ -24,7 +24,6 @@ const Body = () => {
     setFilteredRes(res?.data?.cards.slice(3));
   };
 
-  console.log(restaurantName);
   const handleSearch = () => {
     // write a way to filter the data from array based on userInput
 
