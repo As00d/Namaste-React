@@ -3,8 +3,6 @@ function ItemList({ itemCards }) {
   return itemCards.map((item) => {
     const { name, price, imageId, description, id, defaultPrice } =
       item?.card?.info;
-    console.log(item);
-
     return (
       <div
         className=" flex justify-between my-4 border border-white border-t-gray-300 py-6"

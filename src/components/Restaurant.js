@@ -7,16 +7,26 @@ import { useState } from "react";
 const Restaurant = () => {
   const { id } = useParams();
   const resInfo = useResData(id);
+  const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState(0);
+  const handleOpenAccordion = (index) => {
+    if (index === value) {
+      setValue(null);
+    } else {
+      setValue(index);
+    }
+  };
   if (resInfo === null) {
     return <Shimmer />;
   } else {
+    console.log(resInfo);
     const itemCategory =
-      resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (item) =>
           item?.card?.card?.["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
-
+    console.log(itemCategory);
     const { name, cuisines, costForTwoMessage } =
       resInfo?.cards[2]?.card?.card?.info;
 
@@ -30,13 +40,17 @@ const Restaurant = () => {
         {/* categories accordion */}
         {itemCategory.map((item, index) => {
           const { title, itemCards, widgetId } = item?.card?.card;
+          // controlled component
           return (
             <MenuItem
-              index={index}
               title={title}
               itemCards={itemCards}
               key={index}
               length={item?.card?.card?.itemCards.length}
+              isOpen={index === value ? true : false}
+              setIsOpen={setIsOpen}
+              handleOpenAccordion={handleOpenAccordion}
+              index={index}
             />
           );
         })}
