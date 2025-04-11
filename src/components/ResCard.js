@@ -1,13 +1,16 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import { Link, NavLink } from "react-router";
+import UserContext from "../utils/context/UserContext";
+
 const ResCard = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRatingString, costForTwo, cloudinaryImageId, id } =
     resData;
-
+  const { loggedInUser } = useContext(UserContext);
   return (
     <Link to={"/restaurant/" + id}>
-      <div className="res-card m-4  w-[250px] shadow-2xl h-[400px] rounded-xl p-4 bg-gray-100 hover:bg-gray-200">
+      <div className="res-card m-4  w-[250px] shadow-2xl h-[420px] rounded-xl p-4 bg-gray-100 hover:bg-gray-200">
         <img
           src={`${CDN_URL}${cloudinaryImageId}`}
           alt=""
@@ -17,6 +20,7 @@ const ResCard = (props) => {
         <h4>{cuisines?.join(", ")}</h4>
         <h4>{avgRatingString} stars</h4>
         <h4>{costForTwo}</h4>
+        <p>{loggedInUser}</p>
       </div>
     </Link>
   );

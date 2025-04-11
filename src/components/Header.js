@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FaCircle } from "react-icons/fa";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink } from "react-router";
 import useInternet from "../utils/hook/useInternet";
+import userContext from "../utils/context/UserContext";
 const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(false);
+  const dataFromContext = useContext(userContext);
   const status = useInternet();
   return (
     <div className="flex justify-between items-center mb-2 bg-pink-100 px-16">
@@ -39,6 +41,9 @@ const Header = () => {
             <button onClick={() => setIsLoggedIn(!isloggedIn)}>
               {isloggedIn ? `LogIn` : `Logout`}
             </button>
+          </li>
+          <li className="m-2 text-xl font-bold">
+            {dataFromContext.loggedInUser}
           </li>
         </ul>
       </div>

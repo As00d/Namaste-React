@@ -1,9 +1,10 @@
 import ResCard from "./ResCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Outlet } from "react-router";
 import useInternet from "../utils/hook/useInternet";
 import { WithPromotedLabel } from "./ResCard";
+import UserContext from "../utils/context/UserContext";
 
 const Body = () => {
   const [restaurantName, setRestaurantName] = useState([]);
@@ -11,6 +12,7 @@ const Body = () => {
   const [filteredRes, setFilteredRes] = useState([]);
   const RestaurantCardPromoted = WithPromotedLabel(ResCard);
   const internetStatus = useInternet();
+  const { setUserInfo, loggedInUser } = useContext(UserContext);
   useEffect(function () {
     fetchData();
   }, []);
@@ -81,6 +83,17 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div>
+          <label htmlFor="userName">userName : </label>
+          <input
+            className="border p-2"
+            type="text"
+            name="userName"
+            id="userName"
+            onChange={(e) => setUserInfo(e.target.value)}
+            value={loggedInUser}
+          />
         </div>
       </div>
       <Outlet />
