@@ -55,6 +55,14 @@ Two types of import/export
    - scss, sass 
    - ant design
 
+# Redux and Redux toolkit 
+   - Some jargons that we need to know 
+      - store
+      - slice
+      - dispatching an action
+      - function reducer which will update the slice
+      - selector to read the value from the store
+      
 Issues faced - 
 1. npm run build with parcel throws an error
 Solution: https://stackoverflow.com/questions/71053013/npm-run-build-with-parcel-throws-an-error
