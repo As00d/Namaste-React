@@ -4,9 +4,12 @@ import { LOGO_URL } from "../utils/constants";
 import { NavLink } from "react-router";
 import useInternet from "../utils/hook/useInternet";
 import userContext from "../utils/context/UserContext";
+import { useSelector } from "react-redux";
+import appStore from "../utils/store/appStore";
 const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(false);
   const dataFromContext = useContext(userContext);
+  const cartItems = useSelector((appStore) => appStore.cart.items);
   const status = useInternet();
   return (
     <div className="flex justify-between items-center mb-2 bg-pink-100 px-16">
@@ -36,7 +39,9 @@ const Header = () => {
           <li className="m-2 text-xl">
             <NavLink to="/grocery">Grocery</NavLink>
           </li>
-          <li className="m-2 text-xl">Cart</li>
+          <li className="m-2 text-xl font-bold">
+            <NavLink to="/cart"> {`Cart (${cartItems.length} items)`}</NavLink>
+          </li>
           <li className="m-2 text-xl">
             <button onClick={() => setIsLoggedIn(!isloggedIn)}>
               {isloggedIn ? `LogIn` : `Logout`}

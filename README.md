@@ -62,7 +62,19 @@ Two types of import/export
       - dispatching an action
       - function reducer which will update the slice
       - selector to read the value from the store
-      
+
+- when a button is called its basically dispatches an action which calls the reducer function which updates the value to the store. In order to read the value back we need something called as selector. and we call its subscribes to store using selector.
+
+# Steps to start with redux
+   - Install @reduxjs/toolkit and react-redux
+   - Build our store
+   - connect store to our app
+   - create a cart slice
+   - dispatch an action 
+   - read data using selector
+
+
+
 Issues faced - 
 1. npm run build with parcel throws an error
 Solution: https://stackoverflow.com/questions/71053013/npm-run-build-with-parcel-throws-an-error

@@ -1,8 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/slices/cartSlice";
 function ItemList({ itemCards }) {
   return itemCards.map((item) => {
     const { name, price, imageId, description, id, defaultPrice } =
       item?.card?.info;
+    const dispatch = useDispatch();
+    const handleAddItem = (item) => {
+      // dispatch an action
+      dispatch(addItem(item));
+    };
     return (
       <div
         className=" flex justify-between my-4 border border-white border-t-gray-300 py-6"
@@ -22,8 +29,11 @@ function ItemList({ itemCards }) {
             alt="foodItemImage"
             className="rounded-2xl h-full"
           />
-          <button className="px-12 shadow-xl text-green-600 bg-white rounded-xl border bolder border-gray-300 cursor-pointer relative bottom-[45px] py-2">
-            ADD
+          <button
+            className="px-12 shadow-xl text-green-600 bg-white rounded-xl border bolder border-gray-300 cursor-pointer relative bottom-[45px] py-2"
+            onClick={() => handleAddItem(item)}
+          >
+            ADD +
           </button>
         </div>
       </div>

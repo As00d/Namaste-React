@@ -19,13 +19,13 @@ const Restaurant = () => {
   if (resInfo === null) {
     return <Shimmer />;
   } else {
-    console.log(resInfo);
-    const itemCategory =
-      resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-        (item) =>
-          item?.card?.card?.["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      );
+    const itemCategory = resInfo?.cards[
+      resInfo?.cards.length - 1
+    ]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (item) =>
+        item?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
     console.log(itemCategory);
     const { name, cuisines, costForTwoMessage } =
       resInfo?.cards[2]?.card?.card?.info;
