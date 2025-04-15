@@ -73,6 +73,20 @@ Two types of import/export
    - dispatch an action 
    - read data using selector
 
+# Time for test
+   - Types of testing
+      - unit test
+      - integration test
+      - e2e test end to end test
+
+   - Steps for setup 
+      - Installed react testing library
+      - Installed jest 
+      - Installed babel dependencies
+      - Created babel.config.js
+      - Now the parcel already have babel and the above babel setup will cause issue 
+      - So we need to follow this https://parceljs.org/languages/javascript/#usage-with-other-tools to disable parcel transpilation
+      
 
 
 Issues faced - 
