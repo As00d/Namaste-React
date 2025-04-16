@@ -86,7 +86,9 @@ Two types of import/export
       - Created babel.config.js
       - Now the parcel already have babel and the above babel setup will cause issue 
       - So we need to follow this https://parceljs.org/languages/javascript/#usage-with-other-tools to disable parcel transpilation
-      
+      - writing jest configuration - npx jest --init
+      - install js dom library
+      - then npm install --save-dev jest-environment-jsdom
 
 
 Issues faced - 
