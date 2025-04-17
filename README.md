@@ -89,7 +89,9 @@ Two types of import/export
       - writing jest configuration - npx jest --init
       - install js dom library
       - then npm install --save-dev jest-environment-jsdom
-
+      - to create test we need to see where it is trying to search for test 
+      - testMatch: **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x)
+      - __tests__ these 2 underscores are called dunder 
 
 Issues faced - 
 1. npm run build with parcel throws an error
