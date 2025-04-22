@@ -92,6 +92,9 @@ Two types of import/export
       - to create test we need to see where it is trying to search for test 
       - testMatch: **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x)
       - __tests__ these 2 underscores are called dunder 
+      - install @babel/preset-react - to make JSX work in test cases
+      - install @testing-library/jest-dom
+      - test and it are same thing
 
 Issues faced - 
 1. npm run build with parcel throws an error

@@ -1,11 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { FaCircle } from "react-icons/fa";
 import { LOGO_URL } from "../utils/constants";
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 import useInternet from "../utils/hook/useInternet";
 import userContext from "../utils/context/UserContext";
 import { useSelector } from "react-redux";
-import appStore from "../utils/store/appStore";
+
 const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(false);
   const dataFromContext = useContext(userContext);
@@ -28,19 +28,19 @@ const Header = () => {
             />
           </li>
           <li className="m-2 text-xl">
-            <NavLink to="/">Home</NavLink>
+            <Link to="/">Home</Link>
           </li>
           <li className="m-2 text-xl">
-            <NavLink to="/about">About us</NavLink>
+            <Link to="/about">About us</Link>
           </li>
           <li className="m-2 text-xl">
-            <NavLink to="/contact">Contact us</NavLink>
+            <Link to="/contact">Contact us</Link>
           </li>
           <li className="m-2 text-xl">
-            <NavLink to="/grocery">Grocery</NavLink>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li className="m-2 text-xl font-bold">
-            <NavLink to="/cart"> {`Cart (${cartItems.length} items)`}</NavLink>
+            <Link to="/cart"> {`Cart (${cartItems.length} items)`}</Link>
           </li>
           <li className="m-2 text-xl">
             <button onClick={() => setIsLoggedIn(!isloggedIn)}>
