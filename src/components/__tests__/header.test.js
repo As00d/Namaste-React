@@ -5,6 +5,7 @@ import appStore from "../../utils/store/appStore";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 
+// need to fix this
 describe("these are tests for header component", () => {
   it("checks if header component is loaded correctly", () => {
     render(
